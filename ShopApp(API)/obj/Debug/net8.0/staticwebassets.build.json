@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "KW2/H78ZhrIhBY+xJ3iBatJ53+oyckv5xeFcFsvQm5Q=",
+  "Source": "ShopApp(API)",
+  "BasePath": "_content/ShopApp(API)",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ShopApp(API)\\wwwroot",
+      "Source": "ShopApp(API)",
+      "ContentRoot": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp(API)\\wwwroot\\",
+      "BasePath": "_content/ShopApp(API)",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp(API)\\wwwroot\\images\\download.jpg",
+      "SourceId": "ShopApp(API)",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp(API)\\wwwroot\\",
+      "BasePath": "_content/ShopApp(API)",
+      "RelativePath": "images/download.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\download.jpg"
+    }
+  ]
+}
