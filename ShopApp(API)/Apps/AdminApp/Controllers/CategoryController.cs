@@ -109,13 +109,20 @@ namespace ShopApp_API_.Apps.AdminApp.Controllers
 
             if (existCategory == null) return NotFound();
 
-            string fileName = Guid.NewGuid().ToString() + Path.GetExtension(categoryUpdateDto.Image.FileName);
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", fileName);
-            using FileStream fileStream = new(path, FileMode.Create);
-            await categoryUpdateDto.Image.CopyToAsync(fileStream);
+            if (categoryUpdateDto.Image != null)
+            {
+                string fileName = Guid.NewGuid().ToString() + Path.GetExtension(categoryUpdateDto.Image.FileName);
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", fileName);
+                using FileStream fileStream = new(path, FileMode.Create);
+                await categoryUpdateDto.Image.CopyToAsync(fileStream);
 
-            existCategory.Name = categoryUpdateDto.Name;
-            existCategory.Image = fileName;
+                existCategory.Image = fileName;
+            }
+
+            if (categoryUpdateDto.Name != null)
+            {
+                existCategory.Name = categoryUpdateDto.Name;
+            }
 
             await _context.SaveChangesAsync();
             return StatusCode(StatusCodes.Status204NoContent);
