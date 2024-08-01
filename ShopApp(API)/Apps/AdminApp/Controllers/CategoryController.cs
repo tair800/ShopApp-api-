@@ -24,35 +24,59 @@ namespace ShopApp_API_.Apps.AdminApp.Controllers
             if (id is null) return BadRequest();
 
             var existCategory = await _context.Categories
+                .Include(c => c.Products)
                 .Where(p => !p.isDelete)
-                .Select(c => new CategoryReturnDto()
-                {
-                    Id = c.Id,
-                    Name = c.Name,
-                    CreatedDate = c.CreatedDate,
-                    UpdatedDate = c.UpdatedDate,
-                    ImageUrl = "http://localhost:5036/images/" + c.Image
-                })
+
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-            return Ok(existCategory);
+
+            CategoryReturnDto category = new()
+            {
+                Id = existCategory.Id,
+                Name = existCategory.Name,
+                CreatedDate = existCategory.CreatedDate,
+                UpdatedDate = existCategory.UpdatedDate,
+                ImageUrl = "http://localhost:5036/images/" + existCategory.Image
+            };
+
+            return Ok(category);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Get(string search, int page = 1)
+        {
+            var query = _context.Categories
+                .Where(p => !p.isDelete);
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(c => c.Name.ToLower().Contains(search.ToLower()));
+            }
+
+            CategoryListDto categoryListDto = new()
+            {
+                Page = page,
+                TotalCount = query.Count(),
+                Items = await query.Skip((page - 1) * 2).Take(2)
+              .Select(c => new CategoryListItemDto()
+              {
+                  Id = c.Id,
+                  Name = c.Name,
+                  CreatedDate = c.CreatedDate,
+                  UpdatedDate = c.UpdatedDate,
+
+              }).ToListAsync()
+            };
+
+            return Ok(categoryListDto);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(CategoryCreateDto categoryCreateDto)
         {
             var isExist = await _context.Categories
                 .AnyAsync(p => !p.isDelete && p.Name.ToLower() == categoryCreateDto.Name.ToLower());
 
-            if (isExist) return StatusCode(409);
-
-            if (categoryCreateDto.Image is null)
-                return BadRequest();
-
-            if (categoryCreateDto.Image.ContentType.Contains("images/"))
-                return BadRequest();
-
-            if (categoryCreateDto.Image.Length / 1024 > 1000)
-                return BadRequest();
 
             string fileName = Guid.NewGuid().ToString() + Path.GetExtension(categoryCreateDto.Image.FileName);
             string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", fileName);
@@ -74,7 +98,63 @@ namespace ShopApp_API_.Apps.AdminApp.Controllers
 
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int? id, CategoryUpdateDto categoryUpdateDto)
+        {
+            if (id is null) return StatusCode(StatusCodes.Status400BadRequest);
 
+            var existCategory = await _context.Categories
+                .Where(c => !c.isDelete)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (existCategory == null) return NotFound();
+
+            string fileName = Guid.NewGuid().ToString() + Path.GetExtension(categoryUpdateDto.Image.FileName);
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", fileName);
+            using FileStream fileStream = new(path, FileMode.Create);
+            await categoryUpdateDto.Image.CopyToAsync(fileStream);
+
+            existCategory.Name = categoryUpdateDto.Name;
+            existCategory.Image = fileName;
+
+            await _context.SaveChangesAsync();
+            return StatusCode(StatusCodes.Status204NoContent);
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> Patch(int? id, bool status)
+        {
+            if (id is null) return BadRequest();
+
+            var existCategory = await _context.Categories
+                .Where(c => !c.isDelete)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (existCategory == null) return NotFound();
+
+            existCategory.isDelete = status;
+            await _context.SaveChangesAsync();
+            return StatusCode(StatusCodes.Status204NoContent);
+
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id is null) return BadRequest();
+
+            var existCategory = await _context.Categories
+                .Where(_c => !_c.isDelete)
+                .FirstOrDefaultAsync(_c => _c.Id == id);
+
+            if (existCategory == null) return NotFound();
+
+            _context.Categories.Remove(existCategory);
+            await _context.SaveChangesAsync();
+
+            return Ok(StatusCodes.Status200OK);
+
+        }
 
         //public async Task<string> SaveFilesAsync(IFormFile file)
         //{

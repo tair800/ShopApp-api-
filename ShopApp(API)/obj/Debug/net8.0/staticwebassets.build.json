@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KW2/H78ZhrIhBY+xJ3iBatJ53+oyckv5xeFcFsvQm5Q=",
+  "Hash": "Q5L10d9bGKdl6wl+ZkfLuH5c/Ou+rBsNOaYhJ0l0wEA=",
   "Source": "ShopApp(API)",
   "BasePath": "_content/ShopApp(API)",
   "Mode": "Default",
@@ -16,6 +16,44 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp(API)\\wwwroot\\images\\96ab92b3-3cb3-4c6c-a254-9879655231d6.png",
+      "SourceId": "ShopApp(API)",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp(API)\\wwwroot\\",
+      "BasePath": "_content/ShopApp(API)",
+      "RelativePath": "images/96ab92b3-3cb3-4c6c-a254-9879655231d6.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\96ab92b3-3cb3-4c6c-a254-9879655231d6.png"
+    },
+    {
+      "Identity": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp(API)\\wwwroot\\images\\9a1c8dcb-75ee-413d-98dc-cc35ebfa93d7.png",
+      "SourceId": "ShopApp(API)",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp(API)\\wwwroot\\",
+      "BasePath": "_content/ShopApp(API)",
+      "RelativePath": "images/9a1c8dcb-75ee-413d-98dc-cc35ebfa93d7.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\9a1c8dcb-75ee-413d-98dc-cc35ebfa93d7.png"
+    },
     {
       "Identity": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp(API)\\wwwroot\\images\\download.jpg",
       "SourceId": "ShopApp(API)",

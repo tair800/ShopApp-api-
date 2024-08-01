@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp(API)\\wwwroot\\images\\96ab92b3-3cb3-4c6c-a254-9879655231d6.png",
+      "PackagePath": "staticwebassets\\images\\96ab92b3-3cb3-4c6c-a254-9879655231d6.png"
+    },
+    {
+      "Id": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp(API)\\wwwroot\\images\\9a1c8dcb-75ee-413d-98dc-cc35ebfa93d7.png",
+      "PackagePath": "staticwebassets\\images\\9a1c8dcb-75ee-413d-98dc-cc35ebfa93d7.png"
+    },
+    {
       "Id": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp(API)\\wwwroot\\images\\download.jpg",
       "PackagePath": "staticwebassets\\images\\download.jpg"
     },
