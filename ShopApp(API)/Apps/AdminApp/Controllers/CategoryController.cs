@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShopApp_API_.Apps.AdminApp.Dtos.CategoryDto;
 using ShopApp_API_.Data;
@@ -12,10 +13,12 @@ namespace ShopApp_API_.Apps.AdminApp.Controllers
     {
 
         private readonly ShopAppDbContext _context;
+        private readonly IMapper _mapper;
 
-        public CategoryController(ShopAppDbContext context)
+        public CategoryController(ShopAppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet("{id}")]
@@ -26,20 +29,13 @@ namespace ShopApp_API_.Apps.AdminApp.Controllers
             var existCategory = await _context.Categories
                 .Include(c => c.Products)
                 .Where(p => !p.isDelete)
-
+                .AsNoTracking()
                 .FirstOrDefaultAsync(p => p.Id == id);
 
+            if (existCategory is null) return BadRequest();
 
-            CategoryReturnDto category = new()
-            {
-                Id = existCategory.Id,
-                Name = existCategory.Name,
-                CreatedDate = existCategory.CreatedDate,
-                UpdatedDate = existCategory.UpdatedDate,
-                ImageUrl = "http://localhost:5036/images/" + existCategory.Image
-            };
 
-            return Ok(category);
+            return Ok(_mapper.Map<CategoryReturnDto>(existCategory));
         }
 
         [HttpGet]

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShopApp_API_.Apps.AdminApp.Dtos.ProductDto;
 using ShopApp_API_.Data;
@@ -11,10 +12,12 @@ namespace ShopApp_API_.Controllers
     public class ProductController : ControllerBase
     {
         private readonly ShopAppDbContext _context;
+        private readonly IMapper _mapper;
 
-        public ProductController(ShopAppDbContext context)
+        public ProductController(ShopAppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet("{id}")]
@@ -26,24 +29,10 @@ namespace ShopApp_API_.Controllers
                 .ThenInclude(p => p.Products)
                 .Where(p => !p.isDelete)
                 .FirstOrDefaultAsync(x => x.Id == id);
+
             if (existProduct == null) return NotFound();
 
-            ProductReturnDto returnDto = new()
-            {
-                Id = existProduct.Id,
-                Name = existProduct.Name,
-                CurrentPrice = existProduct.CurrentPrice,
-                SalePrice = existProduct.SalePrice,
-                CreatedDate = existProduct.CreatedDate,
-                UpdatedDate = existProduct.UpdatedDate,
-                Category = new()
-                {
-                    Name = existProduct.Category.Name,
-                    ProductCount = existProduct.Category.Products.Count()
-                }
-            };
-
-            return Ok(returnDto);
+            return Ok(_mapper.Map<ProductReturnDto>(existProduct));
         }
 
         [HttpGet]
@@ -74,7 +63,7 @@ namespace ShopApp_API_.Controllers
                     Category = new()
                     {
                         Name = p.Category.Name,
-                        ProductCount = p.Category.Products.Count()
+                        ProductsCount = p.Category.Products.Count()
                     }
                 })
                 .ToListAsync()
