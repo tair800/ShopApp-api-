@@ -125,6 +125,43 @@
           }
         }
       },
+      "MicroElements.OpenApi.FluentValidation/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "[10.0.0, 12.0.0)",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.1.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/MicroElements.OpenApi.FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/MicroElements.OpenApi.FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MicroElements.Swashbuckle.FluentValidation/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "[10.0.0, 12.0.0)",
+          "MicroElements.OpenApi.FluentValidation": "6.0.0",
+          "Swashbuckle.AspNetCore.SwaggerGen": "[6.3.0, 7.0.0)"
+        },
+        "compile": {
+          "lib/netstandard2.0/MicroElements.Swashbuckle.FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/MicroElements.Swashbuckle.FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/8.0.0": {
         "type": "package",
         "compile": {
@@ -150,6 +187,39 @@
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Abstractions/2.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.1.0",
+          "System.Text.Encodings.Web": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
             "related": ".xml"
           }
         }
@@ -1846,6 +1916,32 @@
         "logo.png"
       ]
     },
+    "MicroElements.OpenApi.FluentValidation/6.0.0": {
+      "sha512": "6XD28ux6GP7C+rspfKhV7aG4ZMeA138uXszbk+EnzXHMv2Gj3fxsU/gKvHlyixT+GBAErbzZO4bbjMi3XXo/Ww==",
+      "type": "package",
+      "path": "microelements.openapi.fluentvalidation/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MicroElements.OpenApi.FluentValidation.dll",
+        "lib/netstandard2.0/MicroElements.OpenApi.FluentValidation.xml",
+        "microelements.openapi.fluentvalidation.6.0.0.nupkg.sha512",
+        "microelements.openapi.fluentvalidation.nuspec"
+      ]
+    },
+    "MicroElements.Swashbuckle.FluentValidation/6.0.0": {
+      "sha512": "uCQMS4ww1yjf6KThudk6ncErudMPqxHMeK8oIYSfGxhumedm7uu0fUjtvA+TnBeZ/HXvmcR7rrc5sI487U9oBA==",
+      "type": "package",
+      "path": "microelements.swashbuckle.fluentvalidation/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MicroElements.Swashbuckle.FluentValidation.dll",
+        "lib/netstandard2.0/MicroElements.Swashbuckle.FluentValidation.xml",
+        "microelements.swashbuckle.fluentvalidation.6.0.0.nupkg.sha512",
+        "microelements.swashbuckle.fluentvalidation.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/8.0.0": {
       "sha512": "buuMMCTxFcVkOkEftb2OafYxrveNGre9KJF4Oi1DkR4rxIj6oLam7Wq3g0Fp9hNVpJteKEPiupsxYnPrD/oUGA==",
       "type": "package",
@@ -1882,6 +1978,32 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
         "microsoft.aspnetcore.cryptography.keyderivation.8.0.0.nupkg.sha512",
         "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/2.1.0": {
+      "sha512": "vbFDyKsSYBnxl3+RABtN79b0vsTcG66fDY8vD6Nqvu9uLtSej70Q5NcbGlnN6bJpZci5orSdgFTHMhBywivDPg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.abstractions/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.xml",
+        "microsoft.aspnetcore.http.abstractions.2.1.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Features/2.1.0": {
+      "sha512": "UmkUePxRjsQW0j5euFFscBwjvTu25b8+qIK/2fI3GvcqQ+mkwgbWNAT8b/Gkoei1m2bTWC07lSdutuRDPPLcJA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.features/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
+        "microsoft.aspnetcore.http.features.2.1.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/8.0.0": {
@@ -4741,6 +4863,7 @@
     "net8.0": [
       "AutoMapper >= 13.0.1",
       "FluentValidation.AspNetCore >= 11.3.0",
+      "MicroElements.Swashbuckle.FluentValidation >= 6.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.0",
       "Microsoft.EntityFrameworkCore >= 8.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.0",
@@ -4795,6 +4918,10 @@
           "FluentValidation.AspNetCore": {
             "target": "Package",
             "version": "[11.3.0, )"
+          },
+          "MicroElements.Swashbuckle.FluentValidation": {
+            "target": "Package",
+            "version": "[6.0.0, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",

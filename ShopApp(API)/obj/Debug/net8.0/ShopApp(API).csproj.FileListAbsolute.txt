@@ -140,3 +140,5 @@ C:\Users\Owner\Desktop\ShopApp(API)\ShopApp(API)\bin\Debug\net8.0\FluentValidati
 C:\Users\Owner\Desktop\ShopApp(API)\ShopApp(API)\obj\Debug\net8.0\ShopApp(API).sourcelink.json
 C:\Users\Owner\Desktop\ShopApp(API)\ShopApp(API)\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Owner\Desktop\ShopApp(API)\ShopApp(API)\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\Owner\Desktop\ShopApp(API)\ShopApp(API)\bin\Debug\net8.0\MicroElements.OpenApi.FluentValidation.dll
+C:\Users\Owner\Desktop\ShopApp(API)\ShopApp(API)\bin\Debug\net8.0\MicroElements.Swashbuckle.FluentValidation.dll

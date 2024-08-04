@@ -1,5 +1,6 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ShopApp_API_.Apps.AdminApp.Validators.ProductValidators;
@@ -16,6 +17,8 @@ builder.Services.AddControllers();
 builder.Services.AddFluentValidationAutoValidation()
     .AddFluentValidationClientsideAdapters()
     .AddValidatorsFromAssemblyContaining<ProductCreateValidator>();
+
+builder.Services.AddFluentValidationRulesToSwagger();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -46,16 +49,19 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 
 }).AddDefaultTokenProviders().AddEntityFrameworkStores<ShopAppDbContext>();
 
-builder.Services.AddAutoMapper(opt =>
-{
-    opt.AddProfile(typeof(MapperProfile));
-});
+
 
 builder.Services.AddDbContext<ShopAppDbContext>(options =>
 {
     options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
 
 });
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddAutoMapper(opt =>
+      opt.AddProfile(new MapperProfile(new HttpContextAccessor()))
+);
+//builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly); birden chox automapper elave etmek uchun ancag bunu ishdetmek bes edir
 
 
 var app = builder.Build();
