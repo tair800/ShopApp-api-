@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "a55EThH4pOadBAbetbwKT/e5mQaEQHz+lrg0gBbsGkDcbsBOJ7PjVx5Cw4Lezqu3RMdSrKfHWPaTbt4KMoVgdQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Owner\\Desktop\\ShopApp(API)\\ShopApp.MVC\\ShopApp.MVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Owner\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

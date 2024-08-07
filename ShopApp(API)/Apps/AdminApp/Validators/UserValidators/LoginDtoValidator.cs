@@ -11,10 +11,10 @@ namespace ShopApp_API_.Apps.AdminApp.Validators.UserValidators
                 .NotNull()
                 .MaximumLength(30);
 
-            RuleFor(c => c.Email)
-               .NotNull()
-               .EmailAddress()
-               .MaximumLength(30);
+            //RuleFor(c => c.Email)
+            //   .NotNull()
+            //   .EmailAddress()
+            //   .MaximumLength(30);
 
             RuleFor(c => c.Password)
                 .NotNull()

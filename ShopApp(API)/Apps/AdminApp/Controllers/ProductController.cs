@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShopApp_API_.Apps.AdminApp.Dtos.ProductDto;
@@ -36,6 +37,7 @@ namespace ShopApp_API_.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "member")]
         public async Task<IActionResult> Get(string search, int page = 1)
         {
             var query = _context.Products
@@ -139,5 +141,7 @@ namespace ShopApp_API_.Controllers
             await _context.SaveChangesAsync();
             return StatusCode(StatusCodes.Status204NoContent);
         }
+
+
     }
 }

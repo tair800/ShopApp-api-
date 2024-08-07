@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ShopApp_API_.Apps.AdminApp.Dtos.CategoryDto;
 using ShopApp_API_.Apps.AdminApp.Dtos.ProductDto;
+using ShopApp_API_.Apps.AdminApp.Dtos.UserDto;
 using ShopApp_API_.Entities;
 
 namespace ShopApp_API_.Profiles
@@ -28,6 +29,7 @@ namespace ShopApp_API_.Profiles
 
             CreateMap<Product, ProductReturnDto>();
             CreateMap<Category, CategoryInProductDto>();
+            CreateMap<AppUser, UserGetDto>();
 
         }
     }
